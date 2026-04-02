@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Flame } from 'lucide-react';
-import { TOTAL_XP } from '../data/curriculum';
+import { TOTAL_XP } from '../../content/curriculum';
 
 export default function XPBar({ progress, onReset }) {
   const pct = Math.min(100, (progress.xp / TOTAL_XP) * 100);

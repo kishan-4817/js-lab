@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import Sidebar from './components/Sidebar';
-import LessonView from './components/LessonView';
-import Dashboard from './components/Dashboard';
-import XPBar from './components/XPBar';
-import { CURRICULUM } from './data/curriculum';
-import { getProgress, resetProgress } from './utils/progress';
+import Sidebar from './features/learning/Sidebar';
+import LessonView from './features/learning/LessonView';
+import Dashboard from './features/learning/Dashboard';
+import XPBar from './features/learning/XPBar';
+import { CURRICULUM } from './content/curriculum';
+import { getProgress, resetProgress } from './lib/progress';
 import './index.css';
 
 export default function App() {

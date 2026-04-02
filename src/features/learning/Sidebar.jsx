@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, ChevronRight } from 'lucide-react';
-import { isLessonComplete } from '../utils/progress';
+import { isLessonComplete } from '../../lib/progress';
 
 export default function Sidebar({ curriculum, selectedSection, selectedLesson, onSelect, progress }) {
   return (

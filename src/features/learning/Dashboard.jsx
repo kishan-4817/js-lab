@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, BookOpen, Target } from 'lucide-react';
-import { CURRICULUM } from '../data/curriculum';
-import { isLessonComplete } from '../utils/progress';
+import { CURRICULUM } from '../../content/curriculum';
+import { isLessonComplete } from '../../lib/progress';
 
 export default function Dashboard({ progress, onSelectLesson }) {
   const totalLessons = CURRICULUM.reduce((sum, s) => sum + s.lessons.length, 0);

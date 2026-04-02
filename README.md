@@ -40,16 +40,18 @@ The app opens at `http://localhost:3000`.
 ```text
 public/
 src/
-  components/
-  data/
-  utils/
+  content/
+    curriculum/
+  features/
+    learning/
+  lib/
 ```
 
 ### Source layout
 
-- `src/components/` contains reusable UI pieces
-- `src/data/` contains the curriculum content
-- `src/utils/` contains shared helper logic
+- `src/features/learning/` contains the main learning experience UI
+- `src/content/curriculum/` contains the lesson data
+- `src/lib/` contains shared helper logic
 
 ## Contributing
 

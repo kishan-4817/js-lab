@@ -4,7 +4,7 @@ import { BookOpen, Code, Zap, ChevronRight, Star } from 'lucide-react';
 import CodeRunner from './CodeRunner';
 import MemoryVisualizer from './MemoryVisualizer';
 import AsyncTimeline from './AsyncTimeline';
-import { markLessonComplete, isLessonComplete } from '../utils/progress';
+import { markLessonComplete, isLessonComplete } from '../../lib/progress';
 import Confetti from 'react-confetti';
 
 function TheoryPanel({ lesson, section }) {
