@@ -76,7 +76,7 @@ export default function AsyncTimeline({ code }) {
           style={{
             background: '#ff6b35', border: 'none', color: '#fff',
             padding: '4px 12px', borderRadius: 4, fontSize: 11,
-            fontFamily: "'JetBrains Mono', monospace", cursor: 'pointer'
+            fontFamily: 'var(--font-sans)', cursor: 'pointer'
           }}>
           {playing ? '⏳ Playing...' : '▶ Animate'}
         </motion.button>
@@ -119,7 +119,7 @@ export default function AsyncTimeline({ code }) {
               <div style={{
                 fontSize: 10, color: track.color, width: 120, flexShrink: 0,
                 paddingTop: 6, textAlign: 'right',
-                fontFamily: "'JetBrains Mono', monospace"
+                fontFamily: 'var(--font-sans)'
               }}>
                 {track.label}
               </div>
@@ -141,7 +141,7 @@ export default function AsyncTimeline({ code }) {
                         border: `1px solid ${track.color}66`,
                         borderRadius: 3, padding: '2px 6px',
                         fontSize: 10, color: track.color,
-                        fontFamily: "'JetBrains Mono', monospace"
+                        fontFamily: 'var(--font-sans)'
                       }}>
                       {item.text}
                       {item.note && <span style={{ color: '#6e7681', marginLeft: 4 }}>{item.note}</span>}

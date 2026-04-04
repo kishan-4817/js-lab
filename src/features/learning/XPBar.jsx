@@ -16,7 +16,7 @@ export default function XPBar({ progress, onReset }) {
     }}>
       {/* Logo */}
       <div style={{ 
-        fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 16,
+        fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 16,
         color: '#00ff88', letterSpacing: -0.5, flexShrink: 0
       }}>
         JS<span style={{ color: '#00d4ff' }}>LAB</span>
@@ -79,7 +79,7 @@ export default function XPBar({ progress, onReset }) {
           background: 'transparent', border: '1px solid #30363d',
           color: '#6e7681', padding: '3px 8px', borderRadius: 4,
           fontSize: 10, cursor: 'pointer', flexShrink: 0,
-          fontFamily: "'JetBrains Mono', monospace"
+          fontFamily: 'var(--font-sans)'
         }}
         title="Reset all progress">
         Reset

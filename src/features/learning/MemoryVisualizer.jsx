@@ -123,14 +123,14 @@ export default function MemoryVisualizer({ code }) {
                     position: 'absolute', top: 4, right: 4,
                     background: `${color}22`, color, fontSize: 8,
                     padding: '1px 4px', borderRadius: 3,
-                    textTransform: 'uppercase', fontFamily: "'JetBrains Mono', monospace"
+                    textTransform: 'uppercase', fontFamily: 'var(--font-sans)'
                   }}>
                     {getTypeLabel(val)}
                   </div>
 
                   {/* Variable name */}
                   <div style={{
-                    fontFamily: "'JetBrains Mono', monospace",
+                    fontFamily: 'var(--font-sans)',
                     fontSize: 11, color: '#8b949e', marginBottom: 4
                   }}>
                     {key}
@@ -138,7 +138,7 @@ export default function MemoryVisualizer({ code }) {
 
                   {/* Value */}
                   <div style={{
-                    fontFamily: "'JetBrains Mono', monospace",
+                    fontFamily: 'var(--font-sans)',
                     fontSize: 13, color, fontWeight: 600,
                     wordBreak: 'break-all'
                   }}>
@@ -148,7 +148,7 @@ export default function MemoryVisualizer({ code }) {
                   {/* Memory address (fake) */}
                   <div style={{
                     fontSize: 9, color: '#6e7681', marginTop: 6,
-                    fontFamily: "'JetBrains Mono', monospace"
+                    fontFamily: 'var(--font-sans)'
                   }}>
                     0x{(Math.abs(key.split('').reduce((a, c) => a + c.charCodeAt(0), 0)) % 65535).toString(16).padStart(4, '0')}
                   </div>

@@ -31,7 +31,7 @@ export default function Sidebar({ curriculum, selectedSection, selectedLesson, o
                 <span style={{ fontSize: 16 }}>{section.icon}</span>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{
-                    fontFamily: "'Syne', sans-serif", fontSize: 12, fontWeight: 700,
+                    fontFamily: 'var(--font-display)', fontSize: 12, fontWeight: 700,
                     color: section.color, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'
                   }}>
                     {section.title}

@@ -5,10 +5,43 @@ import CodeRunner from './CodeRunner';
 import MemoryVisualizer from './MemoryVisualizer';
 import AsyncTimeline from './AsyncTimeline';
 import { markLessonComplete, isLessonComplete } from '../../lib/progress';
+import { LESSON_NOTES } from '../../content/curriculum/lesson-notes';
 import Confetti from 'react-confetti';
+
+function NoteList({ label, items, color }) {
+  return (
+    <div style={{ flex: '1 1 220px', minWidth: 220 }}>
+      <div style={{
+        fontSize: 10,
+        color,
+        textTransform: 'uppercase',
+        letterSpacing: 1.5,
+        marginBottom: 8,
+        fontWeight: 700,
+      }}>
+        {label}
+      </div>
+      <div style={{
+        background: '#0d1117',
+        border: `1px solid ${color}33`,
+        borderRadius: 8,
+        padding: '12px 14px',
+      }}>
+        <ul style={{ margin: 0, paddingLeft: 18, display: 'grid', gap: 8 }}>
+          {items.map((item) => (
+            <li key={item} style={{ color: '#c9d1d9', fontSize: 13, lineHeight: 1.6 }}>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
 
 function TheoryPanel({ lesson, section }) {
   const lines = lesson.theory.split('\n');
+  const notes = LESSON_NOTES[lesson.id];
   return (
     <div style={{ padding: '20px 24px', overflowY: 'auto', height: '100%' }}>
       {/* Header */}
@@ -20,7 +53,7 @@ function TheoryPanel({ lesson, section }) {
           {section.title} · {lesson.type}
         </div>
         <h1 style={{
-          fontFamily: "'Syne', sans-serif", fontSize: 22, fontWeight: 800,
+          fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 800,
           color: '#e6edf3', lineHeight: 1.2, marginBottom: 8
         }}>
           {lesson.title}
@@ -37,6 +70,36 @@ function TheoryPanel({ lesson, section }) {
         <Zap size={12} color={section.color} fill={section.color} />
         <span style={{ fontSize: 12, color: section.color, fontWeight: 600 }}>+{lesson.xp} XP</span>
       </div>
+
+      {notes && (
+        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 20 }}>
+          <NoteList label="Focus first" items={notes.focus} color={section.color} />
+          <NoteList label="Watch out" items={notes.watchOut} color="#ff6b35" />
+          <div style={{ flex: '1 1 220px', minWidth: 220 }}>
+            <div style={{
+              fontSize: 10,
+              color: '#f0c929',
+              textTransform: 'uppercase',
+              letterSpacing: 1.5,
+              marginBottom: 8,
+              fontWeight: 700,
+            }}>
+              Try this
+            </div>
+            <div style={{
+              background: 'rgba(240,201,41,0.08)',
+              border: '1px solid rgba(240,201,41,0.3)',
+              borderRadius: 8,
+              padding: '12px 14px',
+              color: '#e6edf3',
+              fontSize: 13,
+              lineHeight: 1.6,
+            }}>
+              {notes.tryThis}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Theory content */}
       <div style={{
@@ -134,7 +197,7 @@ export default function LessonView({ section, lesson, onComplete, onNext }) {
               padding: '12px 14px 10px',
               fontSize: 12, fontWeight: tab === t.id ? 600 : 400,
               cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 5,
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: 'var(--font-sans)',
               transition: 'all 0.15s'
             }}>
             {t.icon}
@@ -157,7 +220,7 @@ export default function LessonView({ section, lesson, onComplete, onNext }) {
                 background: `${section.color}22`, border: `1px solid ${section.color}66`,
                 color: section.color, padding: '6px 14px', borderRadius: 4,
                 fontSize: 11, fontWeight: 600, cursor: 'pointer',
-                fontFamily: "'JetBrains Mono', monospace"
+                fontFamily: 'var(--font-sans)'
               }}>
               Mark Complete ✓
             </motion.button>
@@ -170,7 +233,7 @@ export default function LessonView({ section, lesson, onComplete, onNext }) {
                 background: section.color, border: 'none',
                 color: '#080b0f', padding: '6px 14px', borderRadius: 4,
                 fontSize: 11, fontWeight: 700, cursor: 'pointer',
-                fontFamily: "'JetBrains Mono', monospace",
+                fontFamily: 'var(--font-sans)',
                 display: 'flex', alignItems: 'center', gap: 4
               }}>
               Next <ChevronRight size={13} />
@@ -202,7 +265,7 @@ export default function LessonView({ section, lesson, onComplete, onNext }) {
                     background: `${section.color}22`, border: `1px solid ${section.color}66`,
                     color: section.color, padding: '8px 16px', borderRadius: 6,
                     fontSize: 12, fontWeight: 600, cursor: 'pointer',
-                    fontFamily: "'JetBrains Mono', monospace",
+                    fontFamily: 'var(--font-sans)',
                     display: 'flex', alignItems: 'center', gap: 6
                   }}>
                   <Code size={13} /> Open Code Lab →
@@ -234,7 +297,7 @@ export default function LessonView({ section, lesson, onComplete, onNext }) {
                       border: `1px solid ${showChallenge ? '#ff6b35' : '#30363d'}`,
                       color: showChallenge ? '#ff6b35' : '#8b949e', padding: '6px 12px', borderRadius: 4,
                       fontSize: 11, fontWeight: 600, cursor: 'pointer',
-                      fontFamily: "'JetBrains Mono', monospace"
+                      fontFamily: 'var(--font-sans)'
                     }}>
                     🎯 {showChallenge ? 'Hide' : 'Show'} Challenge
                   </motion.button>

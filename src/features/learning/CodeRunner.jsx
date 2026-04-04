@@ -94,7 +94,7 @@ export default function CodeRunner({ code: initialCode, onSuccess, showChallenge
               background: '#00ff88', border: 'none',
               color: '#080b0f', padding: '4px 14px', borderRadius: 4,
               fontSize: 12, fontWeight: 700, display: 'flex', alignItems: 'center',
-              gap: 4, cursor: 'pointer', fontFamily: "'JetBrains Mono', monospace"
+              gap: 4, cursor: 'pointer', fontFamily: 'var(--font-sans)'
             }}>
             <Play size={11} fill="currentColor" />
             {running ? 'Running...' : 'Run ▶'}

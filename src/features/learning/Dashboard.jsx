@@ -32,7 +32,7 @@ export default function Dashboard({ progress, onSelectLesson }) {
           WELCOME TO
         </div>
         <h1 style={{
-          fontFamily: "'Syne', sans-serif", fontSize: 36, fontWeight: 800,
+          fontFamily: 'var(--font-display)', fontSize: 36, fontWeight: 800,
           color: '#e6edf3', lineHeight: 1.1, marginBottom: 8
         }}>
           JavaScript<br /><span style={{ color: '#00ff88' }}>Lab</span>
@@ -71,7 +71,7 @@ export default function Dashboard({ progress, onSelectLesson }) {
             <div style={{ color: stat.color, marginBottom: 6, display: 'flex', alignItems: 'center' }}>
               {stat.icon}
             </div>
-            <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 24, fontWeight: 800, color: '#e6edf3' }}>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 800, color: '#e6edf3' }}>
               {stat.value}
             </div>
             <div style={{ fontSize: 11, color: '#6e7681' }}>{stat.label}</div>
@@ -156,7 +156,7 @@ export default function Dashboard({ progress, onSelectLesson }) {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
                   <span style={{ fontSize: 20 }}>{section.icon}</span>
                   <div>
-                    <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 13, fontWeight: 700, color: '#e6edf3' }}>
+                    <div style={{ fontFamily: 'var(--font-display)', fontSize: 13, fontWeight: 700, color: '#e6edf3' }}>
                       {section.title}
                     </div>
                     <div style={{ fontSize: 10, color: '#6e7681' }}>
