@@ -21,14 +21,14 @@ export default function Dashboard({ progress, onSelectLesson }) {
   }
 
   return (
-    <div style={{ flex: 1, overflowY: 'auto', padding: '30px 40px' }}>
+    <div style={{ flex: 1, overflowY: 'auto', padding: '28px 36px 36px' }}>
       {/* Hero */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         style={{ marginBottom: 32 }}
       >
-        <div style={{ fontSize: 11, color: '#6e7681', letterSpacing: 2, marginBottom: 8 }}>
+        <div style={{ fontSize: 10, color: '#8b949e', letterSpacing: 2, marginBottom: 6 }}>
           WELCOME TO
         </div>
         <h1 style={{
@@ -38,7 +38,7 @@ export default function Dashboard({ progress, onSelectLesson }) {
           JavaScript<br /><span style={{ color: '#00ff88' }}>Lab</span>
           <span style={{ color: '#00d4ff' }}>.</span>
         </h1>
-        <p style={{ fontSize: 14, color: '#8b949e', maxWidth: 500, lineHeight: 1.7 }}>
+        <p style={{ fontSize: 14, color: '#8b949e', maxWidth: 500, lineHeight: 1.8 }}>
           Not another boring tutorial. Build real intuition through interactive code labs,
           memory visualizers, and mini-projects. <span style={{ color: '#e6edf3' }}>Learn by doing.</span>
         </p>
@@ -49,7 +49,7 @@ export default function Dashboard({ progress, onSelectLesson }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        style={{ display: 'flex', gap: 12, marginBottom: 32, flexWrap: 'wrap' }}
+        style={{ display: 'flex', gap: 14, marginBottom: 28, flexWrap: 'wrap' }}
       >
         {[
           { label: 'Total XP', value: progress.xp, icon: <Zap size={16} />, color: '#00ff88' },
@@ -63,18 +63,22 @@ export default function Dashboard({ progress, onSelectLesson }) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.15 + i * 0.05 }}
             style={{
-              background: '#0d1117', border: `1px solid ${stat.color}44`,
-              borderRadius: 10, padding: '14px 20px', minWidth: 120,
-              flex: '1 1 120px', maxWidth: 160
+              background: '#0b0f14',
+              border: '1px solid #21262d',
+              borderRadius: 10,
+              padding: '12px 16px',
+              minWidth: 120,
+              flex: '1 1 120px',
+              maxWidth: 160
             }}
           >
             <div style={{ color: stat.color, marginBottom: 6, display: 'flex', alignItems: 'center' }}>
               {stat.icon}
             </div>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: 24, fontWeight: 800, color: '#e6edf3' }}>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 800, color: '#e6edf3' }}>
               {stat.value}
             </div>
-            <div style={{ fontSize: 11, color: '#6e7681' }}>{stat.label}</div>
+            <div style={{ fontSize: 11, color: '#8b949e' }}>{stat.label}</div>
           </motion.div>
         ))}
       </motion.div>
@@ -87,17 +91,17 @@ export default function Dashboard({ progress, onSelectLesson }) {
           transition={{ delay: 0.25 }}
           style={{ marginBottom: 32 }}
         >
-          <div style={{ fontSize: 12, color: '#6e7681', marginBottom: 10 }}>
+          <div style={{ fontSize: 11, color: '#6e7681', marginBottom: 8 }}>
             {completedCount === 0 ? '🚀 START LEARNING' : '▶ CONTINUE'}
           </div>
           <motion.div
             whileHover={{ scale: 1.01, borderColor: nextSection.color }}
             onClick={() => onSelectLesson(nextSection, nextLesson)}
             style={{
-              background: '#0d1117', border: `1px solid ${nextSection.color}88`,
+              background: '#0b0f14',
+              border: '1px solid #21262d',
               borderRadius: 10, padding: '16px 20px', cursor: 'pointer',
               display: 'flex', alignItems: 'center', gap: 16,
-              boxShadow: `0 0 20px ${nextSection.color}11`,
               maxWidth: 500
             }}
           >
@@ -130,7 +134,7 @@ export default function Dashboard({ progress, onSelectLesson }) {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
       >
-        <div style={{ fontSize: 12, color: '#6e7681', marginBottom: 14 }}>ALL MODULES</div>
+        <div style={{ fontSize: 11, color: '#6e7681', marginBottom: 12, letterSpacing: 1.2, textTransform: 'uppercase' }}>ALL MODULES</div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 10 }}>
           {CURRICULUM.map((section, i) => {
             const done = section.lessons.filter(l => isLessonComplete(section.id, l.id)).length;
@@ -148,9 +152,9 @@ export default function Dashboard({ progress, onSelectLesson }) {
                   onSelectLesson(section, firstIncomplete);
                 }}
                 style={{
-                  background: '#0d1117', border: '1px solid #30363d',
+                  background: '#0b0f14', border: '1px solid #21262d',
                   borderRadius: 8, padding: '14px 16px', cursor: 'pointer',
-                  transition: 'border-color 0.2s'
+                  transition: 'border-color 0.2s, transform 0.2s'
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
@@ -159,7 +163,7 @@ export default function Dashboard({ progress, onSelectLesson }) {
                     <div style={{ fontFamily: 'var(--font-display)', fontSize: 13, fontWeight: 700, color: '#e6edf3' }}>
                       {section.title}
                     </div>
-                    <div style={{ fontSize: 10, color: '#6e7681' }}>
+                    <div style={{ fontSize: 10, color: '#8b949e' }}>
                       {done}/{section.lessons.length} lessons · {section.xp} XP
                     </div>
                   </div>
@@ -184,10 +188,10 @@ export default function Dashboard({ progress, onSelectLesson }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
-        style={{ marginTop: 32, padding: '20px', background: '#0d1117', border: '1px solid #30363d', borderRadius: 10 }}
+        style={{ marginTop: 32, paddingTop: 20, borderTop: '1px solid #21262d' }}
       >
-        <div style={{ fontSize: 12, color: '#6e7681', marginBottom: 12 }}>HOW IT WORKS</div>
-        <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
+        <div style={{ fontSize: 11, color: '#6e7681', marginBottom: 12, letterSpacing: 1.2, textTransform: 'uppercase' }}>HOW IT WORKS</div>
+        <div style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }}>
           {[
             { icon: '📖', title: 'Read the Theory', desc: 'Short, focused explanations with examples' },
             { icon: '⚡', title: 'Run Live Code', desc: 'Edit and execute JS right in the browser' },
@@ -195,9 +199,9 @@ export default function Dashboard({ progress, onSelectLesson }) {
             { icon: '🎯', title: 'Crack the Challenge', desc: 'Apply what you learned, earn XP' },
           ].map(item => (
             <div key={item.title} style={{ flex: '1 1 180px', minWidth: 160 }}>
-              <div style={{ fontSize: 20, marginBottom: 6 }}>{item.icon}</div>
+              <div style={{ fontSize: 18, marginBottom: 4 }}>{item.icon}</div>
               <div style={{ fontSize: 12, fontWeight: 600, color: '#e6edf3', marginBottom: 3 }}>{item.title}</div>
-              <div style={{ fontSize: 11, color: '#6e7681', lineHeight: 1.5 }}>{item.desc}</div>
+              <div style={{ fontSize: 11, color: '#8b949e', lineHeight: 1.5 }}>{item.desc}</div>
             </div>
           ))}
         </div>
@@ -205,3 +209,4 @@ export default function Dashboard({ progress, onSelectLesson }) {
     </div>
   );
 }
+

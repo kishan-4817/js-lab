@@ -67,7 +67,7 @@ export default function CodeRunner({ code: initialCode, onSuccess, showChallenge
       {/* Editor toolbar */}
       <div style={{
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '8px 12px', background: '#161b22', borderBottom: '1px solid #30363d',
+        padding: '6px 12px', background: '#11161d', borderBottom: '1px solid #21262d',
         flexShrink: 0
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#8b949e', fontSize: 12 }}>
@@ -80,7 +80,7 @@ export default function CodeRunner({ code: initialCode, onSuccess, showChallenge
             onClick={resetCode}
             style={{
               background: 'transparent', border: '1px solid #30363d',
-              color: '#8b949e', padding: '4px 10px', borderRadius: 4,
+              color: '#8b949e', padding: '4px 9px', borderRadius: 999,
               fontSize: 12, display: 'flex', alignItems: 'center', gap: 4, cursor: 'pointer'
             }}>
             <RefreshCw size={11} /> Reset
@@ -120,11 +120,11 @@ export default function CodeRunner({ code: initialCode, onSuccess, showChallenge
 
       {/* Output */}
       <div style={{
-        minHeight: 100, maxHeight: 180, overflowY: 'auto',
-        background: '#080b0f', borderTop: '1px solid #30363d',
-        padding: '10px 14px', flexShrink: 0
+        minHeight: 92, maxHeight: 170, overflowY: 'auto',
+        background: '#080b0f', borderTop: '1px solid #21262d',
+        padding: '8px 12px', flexShrink: 0
       }}>
-        <div style={{ fontSize: 11, color: '#6e7681', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 4 }}>
+        <div style={{ fontSize: 10, color: '#8b949e', marginBottom: 4, display: 'flex', alignItems: 'center', gap: 4 }}>
           <Terminal size={10} /> OUTPUT
         </div>
         {output.length === 0 && !error ? (

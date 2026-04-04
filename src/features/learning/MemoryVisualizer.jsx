@@ -80,11 +80,11 @@ export default function MemoryVisualizer({ code }) {
 
   return (
     <div style={{
-      background: '#0d1117', border: '1px solid #30363d',
-      borderRadius: 8, padding: '14px',
+      background: '#0d1117', border: '1px solid #21262d',
+      borderRadius: 8, padding: '12px',
     }}>
       <div style={{
-        fontSize: 11, color: '#6e7681', marginBottom: 12,
+        fontSize: 10, color: '#8b949e', marginBottom: 10,
         textTransform: 'uppercase', letterSpacing: 1,
         display: 'flex', alignItems: 'center', gap: 6
       }}>
@@ -96,7 +96,7 @@ export default function MemoryVisualizer({ code }) {
           Declare variables to see them here
         </div>
       ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 8 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 10 }}>
           <AnimatePresence>
             {entries.map(([key, val]) => {
               const color = getTypeColor(val);
@@ -112,8 +112,8 @@ export default function MemoryVisualizer({ code }) {
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 25 }}
                   style={{
-                    background: '#161b22',
-                    border: `1px solid ${isChanged ? color : '#30363d'}`,
+                    background: '#11161d',
+                    border: `1px solid ${isChanged ? color : '#21262d'}`,
                     borderRadius: 6, padding: '10px',
                     position: 'relative', overflow: 'hidden'
                   }}
@@ -121,7 +121,7 @@ export default function MemoryVisualizer({ code }) {
                   {/* Type badge */}
                   <div style={{
                     position: 'absolute', top: 4, right: 4,
-                    background: `${color}22`, color, fontSize: 8,
+                    background: `${color}18`, color, fontSize: 8,
                     padding: '1px 4px', borderRadius: 3,
                     textTransform: 'uppercase', fontFamily: 'var(--font-sans)'
                   }}>
@@ -161,11 +161,11 @@ export default function MemoryVisualizer({ code }) {
 
       {/* Call stack visual */}
       <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid #21262d' }}>
-        <div style={{ fontSize: 10, color: '#6e7681', marginBottom: 8 }}>CALL STACK</div>
+        <div style={{ fontSize: 10, color: '#8b949e', marginBottom: 8 }}>CALL STACK</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           {['global scope'].map((frame, i) => (
             <div key={i} style={{
-              background: '#1c2333', border: '1px solid #30363d',
+              background: '#11161d', border: '1px solid #21262d',
               borderRadius: 4, padding: '5px 10px',
               fontSize: 11, color: '#8b949e',
               fontFamily: "'JetBrains Mono', monospace"

@@ -7,10 +7,10 @@ export default function Sidebar({ curriculum, selectedSection, selectedLesson, o
   return (
     <div style={{
       width: 260, flexShrink: 0, overflowY: 'auto',
-      borderRight: '1px solid #30363d', background: '#080b0f',
+      borderRight: '1px solid #21262d', background: '#080b0f',
       display: 'flex', flexDirection: 'column',
     }}>
-      <div style={{ padding: '12px 14px', borderBottom: '1px solid #21262d' }}>
+      <div style={{ padding: '12px 14px', borderBottom: '1px solid #1c2333' }}>
         <div style={{ fontSize: 10, color: '#6e7681', textTransform: 'uppercase', letterSpacing: 1 }}>
           Curriculum
         </div>
@@ -24,8 +24,8 @@ export default function Sidebar({ curriculum, selectedSection, selectedLesson, o
           <div key={section.id}>
             {/* Section header */}
             <div style={{
-              padding: '10px 14px 6px',
-              borderBottom: '1px solid #21262d',
+              padding: '10px 14px 8px',
+              borderBottom: '1px solid #1c2333',
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <span style={{ fontSize: 16 }}>{section.icon}</span>
@@ -58,14 +58,14 @@ export default function Sidebar({ curriculum, selectedSection, selectedLesson, o
               return (
                 <motion.div
                   key={lesson.id}
-                  whileHover={{ backgroundColor: '#161b22' }}
+                  whileHover={{ backgroundColor: '#11161d' }}
                   onClick={() => onSelect(section, lesson)}
                   style={{
-                    padding: '8px 14px 8px 22px',
+                    padding: '7px 14px 7px 18px',
                     cursor: 'pointer',
-                    background: isActive ? '#161b22' : 'transparent',
+                    background: isActive ? '#11161d' : 'transparent',
                     borderLeft: isActive ? `2px solid ${section.color}` : '2px solid transparent',
-                    transition: 'all 0.15s',
+                    transition: 'background-color 0.15s, border-color 0.15s, color 0.15s',
                     position: 'relative',
                   }}
                 >
@@ -83,13 +83,13 @@ export default function Sidebar({ curriculum, selectedSection, selectedLesson, o
                     </div>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{
-                        fontSize: 12, color: isActive ? '#e6edf3' : '#8b949e',
+                        fontSize: 12, color: isActive ? '#e6edf3' : '#aab3bd',
                         fontWeight: isActive ? 600 : 400,
                         whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'
                       }}>
                         {lesson.title}
                       </div>
-                      <div style={{ fontSize: 10, color: '#6e7681', marginTop: 1 }}>
+                      <div style={{ fontSize: 10, color: '#8b949e', marginTop: 1 }}>
                         +{lesson.xp} XP · {lesson.type}
                       </div>
                     </div>
@@ -107,3 +107,4 @@ export default function Sidebar({ curriculum, selectedSection, selectedLesson, o
     </div>
   );
 }
+

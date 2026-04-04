@@ -11,23 +11,23 @@ export default function XPBar({ progress, onReset }) {
   return (
     <div style={{
       display: 'flex', alignItems: 'center', gap: 16, flexShrink: 0,
-      padding: '10px 20px', background: '#0d1117',
-      borderBottom: '1px solid #30363d',
+      padding: '8px 16px', background: '#0d1117',
+      borderBottom: '1px solid #21262d',
     }}>
       {/* Logo */}
       <div style={{ 
-        fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 16,
+        fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 15,
         color: '#00ff88', letterSpacing: -0.5, flexShrink: 0
       }}>
         JS<span style={{ color: '#00d4ff' }}>LAB</span>
-        <span style={{ color: '#30363d', margin: '0 6px' }}>·</span>
-        <span style={{ fontSize: 11, color: '#6e7681', fontWeight: 400 }}>INTERACTIVE</span>
+        <span style={{ color: '#30363d', margin: '0 5px' }}>·</span>
+        <span style={{ fontSize: 10, color: '#8b949e', fontWeight: 400 }}>INTERACTIVE</span>
       </div>
 
       {/* Level badge */}
       <div style={{
         background: 'rgba(0,255,136,0.1)', border: '1px solid rgba(0,255,136,0.3)',
-        borderRadius: 20, padding: '3px 10px',
+        borderRadius: 16, padding: '2px 8px',
         display: 'flex', alignItems: 'center', gap: 5, flexShrink: 0
       }}>
         <Zap size={12} color="#00ff88" fill="#00ff88" />
@@ -68,7 +68,7 @@ export default function XPBar({ progress, onReset }) {
       )}
 
       {/* Total progress */}
-      <div style={{ fontSize: 11, color: '#6e7681', flexShrink: 0 }}>
+      <div style={{ fontSize: 10, color: '#8b949e', flexShrink: 0 }}>
         <span style={{ color: '#e6edf3' }}>{progress.completedLessons.length}</span> lessons done
       </div>
 
@@ -87,3 +87,4 @@ export default function XPBar({ progress, onReset }) {
     </div>
   );
 }
+

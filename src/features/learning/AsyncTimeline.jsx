@@ -65,9 +65,9 @@ export default function AsyncTimeline({ code }) {
   const current = EVENT_LOOP_STEPS[step];
 
   return (
-    <div style={{ background: '#0d1117', border: '1px solid #30363d', borderRadius: 8, padding: 14 }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
-        <div style={{ fontSize: 11, color: '#6e7681', textTransform: 'uppercase', letterSpacing: 1 }}>
+    <div style={{ background: '#0d1117', border: '1px solid #21262d', borderRadius: 8, padding: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+        <div style={{ fontSize: 10, color: '#8b949e', textTransform: 'uppercase', letterSpacing: 1 }}>
           <span style={{ color: '#ff6b35' }}>◉</span> EVENT LOOP VISUALIZER
         </div>
         <motion.button
@@ -83,7 +83,7 @@ export default function AsyncTimeline({ code }) {
       </div>
 
       {/* Step indicator */}
-      <div style={{ display: 'flex', gap: 4, marginBottom: 12 }}>
+      <div style={{ display: 'flex', gap: 4, marginBottom: 10 }}>
         {EVENT_LOOP_STEPS.map((s, i) => (
           <motion.div
             key={i}
@@ -101,7 +101,7 @@ export default function AsyncTimeline({ code }) {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
-          style={{ marginBottom: 14 }}
+          style={{ marginBottom: 12 }}
         >
           <div style={{ fontSize: 13, fontWeight: 700, color: '#ff6b35', marginBottom: 4 }}>
             {current.title}
@@ -111,7 +111,7 @@ export default function AsyncTimeline({ code }) {
       </AnimatePresence>
 
       {/* Tracks */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
         {TRACKS.map(track => {
           const activeItems = current.items.filter(item => item.track === track.id);
           return (
@@ -124,7 +124,7 @@ export default function AsyncTimeline({ code }) {
                 {track.label}
               </div>
               <div style={{
-                flex: 1, minHeight: 32, background: '#161b22',
+                flex: 1, minHeight: 32, background: '#11161d',
                 border: `1px solid ${activeItems.length > 0 ? track.color : '#21262d'}`,
                 borderRadius: 4, padding: '4px 8px',
                 display: 'flex', flexWrap: 'wrap', gap: 4, alignItems: 'center',
@@ -155,8 +155,8 @@ export default function AsyncTimeline({ code }) {
       </div>
 
       {/* Code preview for context */}
-      <div style={{ marginTop: 12, padding: 10, background: '#080b0f', borderRadius: 4 }}>
-        <div style={{ fontSize: 10, color: '#6e7681', marginBottom: 6 }}>CLASSIC EVENT LOOP EXAMPLE:</div>
+      <div style={{ marginTop: 12, padding: 10, background: '#080b0f', borderRadius: 4, borderTop: '1px solid #21262d' }}>
+        <div style={{ fontSize: 10, color: '#8b949e', marginBottom: 6 }}>CLASSIC EVENT LOOP EXAMPLE:</div>
         <pre style={{ fontSize: 10, color: '#e6edf3', fontFamily: "'JetBrains Mono', monospace", lineHeight: 1.6, margin: 0 }}>
 {`console.log("start");       // sync
 setTimeout(() => {
@@ -173,3 +173,4 @@ console.log("end");         // sync
     </div>
   );
 }
+
